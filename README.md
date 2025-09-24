@@ -1,4 +1,4 @@
-# Boilerplate: Fullstack with Sass
+# 🎬 FilmFeels-API
 
 ## Setup
 
@@ -6,28 +6,25 @@
 
 This repo includes:
 
-* a single, simple API endpoint (`/api/v1/fruits`)
-* a single React component (`<App />`)
-* an example database module (`server/db/fruits.js`)
-* an API client module (`client/apis/fruits.js`)
-* configuration for Vitest and testing library
-* configuration for server-side debugging in VS Code
-* configuration for preprocessing Sass
+* a mood-driven movie discovery API  
+* user-powered film entries enriched automatically with metadata (genres, year, runtime, ratings, etc.)  
+* mood-based grouping of films (e.g. nostalgic, excited, relaxed, anxious, inspired)  
+* a recommendation filter that suggests films based on your current mood  
+* clean, RESTful endpoints for easy integration into apps or websites  
 
-### Installation
+### Features
 
-#### **From the Github UI**
+* **User-powered film entries**  
+  Every film in the database starts with real user input—personal and authentic.  
 
-See the instructions [here](https://docs.github.com/en/free-pro-team@latest/github/creating-cloning-and-archiving-repositories/creating-a-repository-from-a-template) to use Github's feature to create a new repo from a template.
+* **Automatic enrichment**  
+  Our backend layers in extra details (like genre, release year, runtime, and more) to flesh out each entry.  
 
-```
-git clone [your-project-ssh-address]
-cd [your-project-name]
-npm install # to install dependencies
-npm run dev # to start the dev server
-```
+* **Mood-based grouping**  
+  Films are organized by the mood viewers experienced.  
 
-You can find the server running on [http://localhost:3000](http://localhost:3000) and the client running on [http://localhost:5173](http://localhost:5173).
+* **Smart recommendations**  
+  Input your current mood → instantly get a film suggestion tailored to how you feel.  
 
----
-[Provide feedback on this repo](https://docs.google.com/forms/d/e/1FAIpQLSfw4FGdWkLwMLlUaNQ8FtP2CTJdGDUv6Xoxrh19zIrJSkvT4Q/viewform?usp=pp_url&entry.1958421517=boilerplate-fullstack)
+* **RESTful API**  
+  Clean, predictable endpoints designed for integration into apps, websites, or personal projects.  
