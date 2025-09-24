@@ -5,7 +5,7 @@
 export async function up(knex) {
   return knex.schema.createTable('movies', (table) => {
     table.increments('id').primary()
-    table.string('title')
+    table.string('title').notNullable()
     table.float('rating')
     table.string('overview')
     table.string('release_date')

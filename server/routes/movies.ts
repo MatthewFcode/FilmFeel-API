@@ -1,6 +1,7 @@
 import { Router } from 'express'
 import request from 'superagent'
 import * as db from '../db/movies.ts'
+import { Movie } from '../../models/movies.ts'
 
 const router = Router()
 
@@ -9,7 +10,7 @@ const apiBase = 'https://api.themoviedb.org/3'
 
 router.get('/', async (req, res) => {
   try {
-    const allMovies = db.getAllMovies()
+    const allMovies = await db.getAllMovies()
 
     res.status(200).json(allMovies)
   } catch (err) {
@@ -18,10 +19,10 @@ router.get('/', async (req, res) => {
   }
 })
 
-router.get('/mood', async (req, res) => {
+router.get('/:mood', async (req, res) => {
   try {
-    const { mood } = req.body
-    const result = db.getMovieByMood(mood)
+    const mood = req.params.mood
+    const result = await db.getMovieByMood(mood)
     res.status(200).json(result)
   } catch (err) {
     console.log(err)
@@ -34,6 +35,16 @@ router.get('/mood', async (req, res) => {
 router.post('/', async (req, res) => {
   try {
     const { mood, title } = req.body
+
+    // not adding duplicate movies (reducing api calls to the external api)
+    const existingMovies = await db.getAllMovies()
+    const duplicate = existingMovies?.find(
+      (movie: Movie) => movie.title.toLowerCase() === title.toLowerCase(),
+    )
+
+    if (duplicate) {
+      return res.status(409).json('Movie already exists in the database')
+    }
 
     const apiResult = await request
       .get(`${apiBase}/search/movie`)
@@ -59,7 +70,7 @@ router.post('/', async (req, res) => {
       language: movieData.original_language,
       mood: mood,
     }
-    const insertedMovie = db.addMovie(newMovie)
+    const insertedMovie = await db.addMovie(newMovie)
     res.status(201).json(insertedMovie)
   } catch (err) {
     console.log(err)
