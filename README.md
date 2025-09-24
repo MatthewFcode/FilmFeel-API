@@ -12,7 +12,7 @@ This repo includes:
 * a recommendation filter that suggests films based on your current mood  
 * clean, RESTful endpoints for easy integration into apps or websites  
 
-### Features
+### ✨ Features
 
 * **User-powered film entries**  
   Every film in the database starts with real user input—personal and authentic.  

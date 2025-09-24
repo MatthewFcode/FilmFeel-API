@@ -1,5 +1,6 @@
 import { useAllMoods } from '../hooks/useMovies.ts'
 import LoadingSpinner from './Loading.tsx'
+
 function Docs() {
   const { data: moods, isError, isPending } = useAllMoods()
 
@@ -16,9 +17,9 @@ function Docs() {
   title: string
   rating: number
   overview: string
-  release_date: string 
+  release_date: string
   poster: string
-  language: string 
+  language: string
   mood: string
 }`
 
@@ -26,15 +27,17 @@ function Docs() {
   "id": 1,
   "title": "Inception",
   "rating": 8.37,
-  "overview": "Cobb, a skilled thief who commits corporate espionage by infiltrating the subconscious of his targets is offered a chance to regain his old life as payment for a task considered to be impossible:, the implantation of another person's idea into a target's subconscious.",
+  "overview": "Cobb, a skilled thief who commits corporate espionage by infiltrating the subconscious of his targets is offered a chance to regain his old life as payment for a task considered to be impossible: the implantation of another person's idea into a target's subconscious.",
   "release_date": "2010-07-15",
-  "poster": "/ljsZTbVsrQSqZgWeep2B1QiDKuh.jpg", 
+  "poster": "/ljsZTbVsrQSqZgWeep2B1QiDKuh.jpg",
   "language": "en",
   "mood": "Angry"
 }`
+
   return (
     <div>
       <h1>API Docs | Documentation</h1>
+
       <h3>About</h3>
       <p>
         This is a multi purposed REST API that lets you make GET and POST
@@ -46,6 +49,7 @@ function Docs() {
         We have quality data from real people and we are keeping it freely
         available to you!
       </p>
+
       <h3>How to use❓ | Requests and Endpoints</h3>
       <p>Requesting all the data: </p>
       <p>Requesting data by tag: </p>
@@ -54,19 +58,52 @@ function Docs() {
         data in the API. Adding a tag to the query will give you back all the
         films with that tag.
       </p>
+
       <h4>Structure</h4>
-      <pre>{structure}</pre>
+      <pre>
+        <code>{structure}</code>
+      </pre>
+
       <h4>Shape of the returned data</h4>
-      <pre>{example}</pre>
+      <pre>
+        <code>{example}</code>
+      </pre>
 
-      <h3>Mood Tags that for grouping our API data</h3>
-      {moods?.map((mood, index) => (
-        <li key={index}>{mood}</li>
-      ))}
+      <h3>Mood Tags for grouping our API data</h3>
+      <div className="mood-tags-container">
+        {moods?.map((mood, index) => (
+          <span key={index} className="mood-tag">
+            {mood}
+          </span>
+        ))}
+      </div>
 
-      <h3>CORS (Cross Origin Resource Sharing)</h3>
+      <h3 id="cors">CORS (Cross Origin Resource Sharing)</h3>
       <p>
-        We do not have any CORS restrictions on our API meaning that developers
+        CORS is a browser security feature that controls whether a website
+        running on one domain is allowed to request resources from a different
+        domain.
+      </p>
+      <p>
+        For the FilmFeels API, there are no CORS restrictions in place. This
+        means:
+      </p>
+      <ul>
+        <li>
+          Any client (a browser, mobile app, or another server) can call the
+          API.
+        </li>
+        <li>
+          You dont need to worry about providing extra headers or authentication
+          just to get data.
+        </li>
+        <li>The API is completely open for developers to use freely.</li>
+      </ul>
+      <p>
+        Because the API is open, its very easy to test, prototype, and integrate
+        into projects. If you plan to build something in production on top of
+        this, you may still want to add your own security layers (such as rate
+        limiting or authentication) in your app to prevent misuse.
       </p>
     </div>
   )

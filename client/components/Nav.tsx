@@ -1,4 +1,5 @@
 import { Link } from 'react-router'
+import { HashLink } from 'react-router-hash-link'
 
 function Nav() {
   return (
@@ -11,7 +12,9 @@ function Nav() {
           <Link to="/documentation">Documentation</Link>
         </li>
         <li>
-          <Link to="/documentation">CORS Restrictions</Link>
+          <HashLink smooth to="/documentation#cors">
+            CORS Restrictions
+          </HashLink>
         </li>
         <li>
           <Link to="/add-film">Add a Film</Link>
