@@ -30,6 +30,16 @@ router.get('/:mood', async (req, res) => {
   }
 })
 
+router.get('/moods', async (req, res) => {
+  try {
+    const result = await db.getAllMoods()
+    res.status(200).json(result)
+  } catch (err) {
+    console.log(err)
+    res.status(500).json('Internal Server Error')
+  }
+})
+
 // post route integrating the external api
 
 router.post('/', async (req, res) => {
@@ -77,26 +87,5 @@ router.post('/', async (req, res) => {
     res.status(400).json('Bad Post Request')
   }
 })
-
-// router.post('/', async (req, res) => {
-//   try {
-//     const { title, rating, overview, releaseDate, poster, language, mood } =
-//       req.body
-//     const convert = {
-//       title: title,
-//       rating: rating,
-//       overview: overview,
-//       release_date: releaseDate,
-//       poster: poster,
-//       language: language,
-//       mood: mood,
-//     }
-//     const result = db.addMovie(convert)
-//     res.status(201).json(result)
-//   } catch (err) {
-//     console.log(err)
-//     res.status(400).json('Bad Post Request')
-//   }
-// })
 
 export default router

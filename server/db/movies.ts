@@ -45,3 +45,14 @@ export async function addMovie(newMovie: {
     console.log(err)
   }
 }
+
+//getting all moods that are being used to display in the docs of the api in the tags section and as buttons for the get requests in the suggestion component
+export async function getAllMoods(): Promise<string[] | undefined> {
+  try {
+    const result = await db('movies').distinct('mood').pluck('mood') //distinct ensures that there are no duplicates || pluck extracts the mood values into a flat string
+    console.log(result)
+    return result
+  } catch (err) {
+    console.log(err)
+  }
+}

@@ -4,7 +4,7 @@ import {
   useQueryClient,
   MutationFunction,
 } from '@tanstack/react-query'
-import { getMoviesByMood, addMovie } from '../api/movies.ts'
+import { getMoviesByMood, addMovie, getAllMoods } from '../api/movies.ts'
 
 export function useMoviesByMood(mood: string) {
   const result = useQuery({
@@ -12,6 +12,11 @@ export function useMoviesByMood(mood: string) {
     queryFn: () => getMoviesByMood(mood),
     enabled: !!mood,
   })
+  return result
+}
+
+export function useAllMoods() {
+  const result = useQuery({ queryKey: ['all-moods'], queryFn: getAllMoods })
   return result
 }
 

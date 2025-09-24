@@ -26,3 +26,12 @@ export async function addMovie(newMovie: {
     console.log(err)
   }
 }
+
+export async function getAllMoods(): Promise<string[] | undefined> {
+  try {
+    const result = await request.get(`${rootURL}/movies/moods`)
+    return result.body
+  } catch (err) {
+    console.log(err)
+  }
+}
