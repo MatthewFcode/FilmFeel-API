@@ -28,6 +28,7 @@ export function useSomethingMutation<TData = unknown, TVariables = unknown>(
     mutationFn,
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['mood'] })
+      queryClient.invalidateQueries({ queryKey: ['all-moods'] })
     },
   })
 

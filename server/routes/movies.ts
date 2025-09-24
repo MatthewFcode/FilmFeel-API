@@ -19,10 +19,9 @@ router.get('/', async (req, res) => {
   }
 })
 
-router.get('/:mood', async (req, res) => {
+router.get('/moods', async (req, res) => {
   try {
-    const mood = req.params.mood
-    const result = await db.getMovieByMood(mood)
+    const result = await db.getAllMoods()
     res.status(200).json(result)
   } catch (err) {
     console.log(err)
@@ -30,9 +29,10 @@ router.get('/:mood', async (req, res) => {
   }
 })
 
-router.get('/moods', async (req, res) => {
+router.get('/:mood', async (req, res) => {
   try {
-    const result = await db.getAllMoods()
+    const mood = req.params.mood
+    const result = await db.getMovieByMood(mood)
     res.status(200).json(result)
   } catch (err) {
     console.log(err)

@@ -11,6 +11,9 @@ function Nav() {
           <Link to="/documentation">Documentation</Link>
         </li>
         <li>
+          <Link to="/documentation">CORS Restrictions</Link>
+        </li>
+        <li>
           <Link to="/add-film">Add a Film</Link>
         </li>
         <li>
