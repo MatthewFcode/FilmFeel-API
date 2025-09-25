@@ -6,6 +6,8 @@ import cors from 'cors'
 
 dotenv.config()
 
+console.log('TMDB_API_KEY:', process.env.TMDB_API_KEY)
+
 const server = express()
 
 server.use(cors()) // By default this allows for allows for all origins for requests from anyone not just my front end

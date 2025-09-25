@@ -5,9 +5,6 @@ import { Movie } from '../../models/movies.ts'
 
 const router = Router()
 
-const apiKey = process.env.TMDB_API_KEY
-const apiBase = 'https://api.themoviedb.org/3'
-
 router.get('/', async (req, res) => {
   try {
     const allMovies = await db.getAllMovies()
@@ -55,6 +52,8 @@ router.post('/', async (req, res) => {
     if (duplicate) {
       return res.status(409).json('Movie already exists in the database')
     }
+    const apiKey = process.env.TMDB_API_KEY
+    const apiBase = 'https://api.themoviedb.org/3'
 
     const apiResult = await request
       .get(`${apiBase}/search/movie`)
