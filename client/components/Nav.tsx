@@ -6,7 +6,7 @@ function Nav() {
     <nav>
       <ul>
         <li>
-          <h2>Film Feels API</h2>
+          <h2>Film Feels API 🎞️</h2>
         </li>
         <li>
           <Link to="/documentation">Documentation</Link>

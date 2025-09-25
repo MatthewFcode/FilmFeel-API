@@ -36,7 +36,7 @@ function Docs() {
 
   return (
     <div>
-      <h1>API Docs | Documentation</h1>
+      <h1>API Docs | Documentation 📝</h1>
 
       <h3>About</h3>
       <p>

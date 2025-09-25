@@ -51,7 +51,7 @@ function Add() {
           mood you were in before you watched and then we enrich this data and
           make it available to the masses.
         </p>
-        <p>For us this ensures API data that is interactive and reliable💪</p>
+        <p>For us this ensures API data that is interactive and reliable 💪</p>
       </div>
 
       {/* Form Section */}

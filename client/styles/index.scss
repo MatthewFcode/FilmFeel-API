@@ -135,10 +135,10 @@ body {
         font-weight: 700;
         text-align: center;
         text-shadow: 0 2px 8px rgba(100, 181, 246, 0.3);
-        background: linear-gradient(135deg, $light-blue, $hover-blue);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
+        // background: linear-gradient(135deg, $light-blue, $hover-blue);
+        // -webkit-background-clip: text;
+        // -webkit-text-fill-color: transparent;
+        // background-clip: text;
       }
       
       h3 {
