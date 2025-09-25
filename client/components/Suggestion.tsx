@@ -86,9 +86,9 @@ function Suggestion() {
         <h1>Film Suggestion Generator</h1>
         <p>
           Click a mood tag from below and get a film recommendation generated
-          from our database
+          from our database 🍿
         </p>
-        <p>Press the regenerate button if you dont like the look of it</p>
+        <p>Press the regenerate button if you dont like the look of it 🔄</p>
       </div>
 
       {/* Mood Tags */}
