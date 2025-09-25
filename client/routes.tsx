@@ -6,6 +6,7 @@ import Add from './components/Add.tsx'
 
 const routes = createRoutesFromElements(
   <Route path="/" element={<App />}>
+    <Route index element={<Docs />} />
     <Route path="/documentation" element={<Docs />} />
     <Route path="/suggestion" element={<Suggestion />} />
     <Route path="/add-film" element={<Add />} />
