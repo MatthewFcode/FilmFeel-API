@@ -1,16 +1,23 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;500;600;700&display=swap');
 
-// Color variables
-$primary-dark: #0a0a0a;
-$secondary-dark: #1a1a1a;
-$accent-dark: #2a2a2a;
+// Enhanced Color variables with more contrast
+$primary-dark: #0a0a0a;         // Deep black
+$secondary-dark: #1a1a1a;       // Dark grey
+$accent-dark: #2a2a2a;          // Medium grey
+$nav-grey: #2d2d2d;             // Navigation grey
+$nav-dark: #252525;             // Navigation darker grey
+$nav-light: #383838;            // Navigation lighter grey
+$red-accent: #dc2626;           // Red border accent
+$red-hover: #ef4444;            // Red hover state
 $light-blue: #64b5f6;
 $bright-blue: #42a5f5;
 $hover-blue: #90caf9;
 $text-light: #e3f2fd;
 $text-muted: #b3e5fc;
-$border-color: #333;
+$border-color: #404040;         // Lighter border for more contrast
 $code-bg: #1e1e1e;
+$card-bg: #1f1f1f;              // Card background with contrast
 
 html, 
 body {
@@ -28,18 +35,20 @@ body {
   min-height: 100vh;
   background-color: $primary-dark;
   
-  // Navigation sidebar
+  // Enhanced Navigation sidebar with grey theme and red accent
   nav {
     width: 280px;
-    background: linear-gradient(180deg, $secondary-dark 0%, $accent-dark 100%);
-    border-right: 2px solid $border-color;
+    background: linear-gradient(180deg, $nav-grey 0%, $nav-dark 100%);
+    border-right: 3px solid $red-accent; // Red border accent
     padding: 2rem 1.5rem;
     position: fixed;
     height: 100vh;
     left: 0;
     top: 0;
     overflow-y: auto;
-    box-shadow: 4px 0 20px rgba(0, 0, 0, 0.5);
+    box-shadow: 
+      4px 0 20px rgba(0, 0, 0, 0.241),
+      inset -1px 0 0 rgba(220, 38, 38, 0.3); // Red inner glow
     
     ul {
       list-style: none;
@@ -50,14 +59,17 @@ body {
         margin-bottom: 1.5rem;
         
         h2 {
-          color: $light-blue;
-          font-size: 1.5rem;
+          color: $text-light;
+          font-size: 2rem;
           font-weight: 600;
           margin-bottom: 2rem;
           text-align: center;
-          text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-          border-bottom: 2px solid $light-blue;
+          text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+          border-bottom: 2px solid $red-accent;
           padding-bottom: 1rem;
+          background: linear-gradient(135deg, $text-light, $hover-blue);
+          background-clip: text;
+          color: rgb(100, 181, 246);
         }
         
         a {
@@ -71,6 +83,7 @@ body {
           border: 1px solid transparent;
           position: relative;
           overflow: hidden;
+          background: rgba(56, 56, 56, 0.3); // Subtle background
           
           &::before {
             content: '';
@@ -79,16 +92,18 @@ body {
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(100, 181, 246, 0.1), transparent);
+            background: linear-gradient(90deg, transparent, rgba(220, 38, 38, 0.1), transparent);
             transition: left 0.5s ease;
           }
           
           &:hover {
-            background: linear-gradient(135deg, rgba(100, 181, 246, 0.15), rgba(66, 165, 245, 0.1));
-            color: $hover-blue;
-            border-color: $light-blue;
+            background: linear-gradient(135deg, rgba(220, 38, 38, 0.15), rgba(239, 68, 68, 0.1));
+            color: $text-light;
+            border-color: $red-accent;
             transform: translateX(5px);
-            box-shadow: 0 4px 15px rgba(100, 181, 246, 0.2);
+            box-shadow: 
+              0 4px 15px rgba(220, 38, 38, 0.3),
+              inset 0 1px 0 rgba(255, 255, 255, 0.1);
             
             &::before {
               left: 100%;
@@ -96,18 +111,20 @@ body {
           }
           
           &.active {
-            background: linear-gradient(135deg, $light-blue, $bright-blue);
-            color: $primary-dark;
+            background: linear-gradient(135deg, $red-accent, $red-hover);
+            color: white;
             font-weight: 600;
-            box-shadow: 0 6px 20px rgba(100, 181, 246, 0.4);
-            border-color: $bright-blue;
+            box-shadow: 
+              0 6px 20px rgba(220, 38, 38, 0.4),
+              inset 0 1px 0 rgba(255, 255, 255, 0.2);
+            border-color: $red-hover;
           }
         }
       }
     }
   }
   
-  // Main content area
+  // Enhanced main content area with more contrast
   .main-content {
     margin-left: 280px;
     flex: 1;
@@ -116,16 +133,19 @@ body {
     align-items: flex-start;
     padding: 3rem 2rem;
     min-height: 100vh;
-    background: linear-gradient(135deg, $primary-dark 0%, #0d1117 50%, $secondary-dark 100%);
+    background: linear-gradient(135deg, $primary-dark 0%, #0f0f0f 25%, $secondary-dark 75%, #151515 100%);
     
     .content-wrapper {
       width: 100%;
       max-width: 900px;
-      background: rgba(26, 26, 26, 0.8);
-      backdrop-filter: blur(10px);
+      background: rgba(31, 31, 31, 0.9); // More contrast
+      backdrop-filter: blur(15px);
       border-radius: 1rem;
       padding: 3rem;
-      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+      box-shadow: 
+        0 15px 50px rgba(0, 0, 0, 0.8),
+        0 0 0 1px rgba(64, 64, 64, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.05);
       border: 1px solid $border-color;
       
       h1 {
@@ -135,10 +155,6 @@ body {
         font-weight: 700;
         text-align: center;
         text-shadow: 0 2px 8px rgba(100, 181, 246, 0.3);
-        // background: linear-gradient(135deg, $light-blue, $hover-blue);
-        // -webkit-background-clip: text;
-        // -webkit-text-fill-color: transparent;
-        // background-clip: text;
       }
       
       h3 {
@@ -146,7 +162,7 @@ body {
         font-size: 1.8rem;
         font-weight: 600;
         margin: 2.5rem 0 1.5rem 0;
-        border-left: 4px solid $light-blue;
+        border-left: 4px solid $red-accent; // Red accent on headings
         padding-left: 1rem;
       }
       
@@ -164,7 +180,7 @@ body {
         margin-bottom: 1.5rem;
       }
       
-      // Remove bullets from all lists
+      // Enhanced list styling
       ul, ol {
         list-style: none;
         padding: 0;
@@ -173,14 +189,16 @@ body {
         li {
           color: $text-muted;
           padding: 0.75rem 0;
-          border-left: 2px solid $light-blue;
+          border-left: 2px solid $red-accent; // Red accent
           padding-left: 1rem;
           margin-bottom: 0.5rem;
           position: relative;
+          background: rgba(45, 45, 45, 0.3); // Subtle background
+          border-radius: 0 0.25rem 0.25rem 0;
           
           &::before {
             content: '▸';
-            color: $light-blue;
+            color: $red-accent; // Red bullet
             font-weight: bold;
             position: absolute;
             left: -0.5rem;
@@ -188,15 +206,18 @@ body {
         }
       }
       
-      // Code blocks
+      // Enhanced code blocks
       pre {
         background: $code-bg;
         border: 1px solid $border-color;
+        border-left: 4px solid $red-accent; // Red accent
         border-radius: 0.5rem;
         padding: 1.5rem;
         overflow-x: auto;
         margin: 1.5rem 0;
-        box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.3);
+        box-shadow: 
+          inset 0 2px 4px rgba(0, 0, 0, 0.3),
+          0 1px 0 rgba(255, 255, 255, 0.05);
         
         code {
           color: $hover-blue;
@@ -209,20 +230,21 @@ body {
   }
 }
 
-// Mood Tags Styling
+// Enhanced Mood Tags with more contrast
 .mood-tags-container {
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
   margin: 2rem 0;
   padding: 1.5rem;
-  background: rgba(42, 42, 42, 0.5);
+  background: rgba(64, 64, 64, 0.4); // More contrast
   border-radius: 0.75rem;
   border: 1px solid $border-color;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
 }
 
 .mood-tag {
-  background: linear-gradient(135deg, $secondary-dark, $accent-dark);
+  background: linear-gradient(135deg, $nav-grey, $nav-dark);
   color: $light-blue;
   padding: 0.75rem 1.5rem;
   border-radius: 2rem;
@@ -233,6 +255,7 @@ body {
   cursor: pointer;
   position: relative;
   overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   
   &::before {
     content: '';
@@ -258,7 +281,7 @@ body {
   }
 }
 
-// Loading spinner enhancements for dark theme
+// Enhanced loading spinner
 .loading-container {
   display: flex;
   justify-content: center;
@@ -285,8 +308,8 @@ body {
     &:nth-child(1) {
       width: 80px;
       height: 80px;
-      border-top-color: $light-blue;
-      border-right-color: $light-blue;
+      border-top-color: $red-accent;
+      border-right-color: $red-accent;
       animation-duration: 1.5s;
     }
     
@@ -316,8 +339,8 @@ body {
       height: 20px;
       top: 30px;
       left: 30px;
-      border-bottom-color: $light-blue;
-      border-left-color: $light-blue;
+      border-bottom-color: $red-accent;
+      border-left-color: $red-accent;
       animation-duration: 0.8s;
       animation-direction: reverse;
     }
@@ -327,12 +350,13 @@ body {
     position: absolute;
     width: 8px;
     height: 8px;
-    background: linear-gradient(45deg, $light-blue, $hover-blue);
+    background: linear-gradient(45deg, $red-accent, $red-hover);
     border-radius: 50%;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     animation: pulse 1.5s ease-in-out infinite;
+    box-shadow: 0 0 10px rgba(220, 38, 38, 0.5);
   }
 }
 
@@ -343,54 +367,53 @@ body {
   animation: fade 2s ease-in-out infinite;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
-// COMPACT ADD FORM STYLING - Significantly Reduced Size
+
+// Enhanced form styling with more contrast
 .add-form-container {
   width: 100%;
-  max-width: 750px; // Reduced from 700px
+  max-width: 750px;
   margin: 0 auto;
   
   .form-header {
     text-align: center;
-    margin-bottom: 1.5rem; // Reduced from 3rem
+    margin-bottom: 1.5rem;
     
     h1 {
       color: $light-blue;
-      font-size: 2rem; // Reduced from 2.8rem
+      font-size: 2rem;
       font-weight: 700;
-      margin-bottom: 0.5rem; // Reduced from 1rem
-      // background: linear-gradient(135deg, $light-blue, $hover-blue);
-      // -webkit-background-clip: text;
-      // -webkit-text-fill-color: transparent;
-      background-clip: text;
+      margin-bottom: 0.5rem;
       text-shadow: 0 0 30px rgba(100, 181, 246, 0.3);
     }
     
     h2 {
       color: $bright-blue;
-      font-size: 1.4rem; // Reduced from 1.8rem
+      font-size: 1.4rem;
       font-weight: 500;
-      margin-bottom: 0.8rem; // Reduced from 1.5rem
+      margin-bottom: 0.8rem;
     }
     
     p {
       color: $text-muted;
-      font-size: 1rem; // Reduced from 1.2rem
-      line-height: 1.5; // Reduced from 1.8
-      max-width: 650px; // Reduced from 700px
-      margin: 0 auto 0.8rem auto; // Reduced bottom margin
+      font-size: 1rem;
+      line-height: 1.5;
+      max-width: 650px;
+      margin: 0 auto 0.8rem auto;
     }
   }
   
   .form-section {
-    background: rgba(26, 26, 26, 0.9);
+    background: rgba(31, 31, 31, 0.9); // More contrast
     backdrop-filter: blur(15px);
     border-radius: 1.5rem;
-    padding: 2rem 2rem; // Reduced from 4rem 3rem
-    margin-top: 1.5rem; // Reduced from 3rem
+    padding: 2rem 2rem;
+    margin-top: 1.5rem;
     box-shadow: 
-      0 20px 60px rgba(0, 0, 0, 0.7),
-      inset 0 1px 0 rgba(100, 181, 246, 0.1);
-    border: 1px solid rgba(100, 181, 246, 0.2);
+      0 20px 60px rgba(0, 0, 0, 0.8),
+      inset 0 1px 0 rgba(220, 38, 38, 0.1), // Red inner accent
+      0 0 0 1px rgba(64, 64, 64, 0.3);
+    border: 1px solid $border-color;
+    border-top: 2px solid $red-accent; // Red top accent
     position: relative;
     overflow: hidden;
     
@@ -401,20 +424,20 @@ body {
       left: -50%;
       width: 200%;
       height: 200%;
-      background: radial-gradient(circle, rgba(100, 181, 246, 0.03) 0%, transparent 50%);
+      background: radial-gradient(circle, rgba(220, 38, 38, 0.03) 0%, transparent 50%);
       animation: rotate 20s linear infinite;
       pointer-events: none;
     }
     
     h1 {
       color: $light-blue;
-      font-size: 1.8rem; // Reduced from 2.2rem
+      font-size: 1.8rem;
       font-weight: 600;
       text-align: center;
-      margin-bottom: 1.5rem; // Reduced from 3rem
+      margin-bottom: 1rem;
       position: relative;
       z-index: 1;
-      
+      margin-top: -0.5rem;
       &::after {
         content: '';
         position: absolute;
@@ -423,7 +446,7 @@ body {
         transform: translateX(-50%);
         width: 80px;
         height: 3px;
-        background: linear-gradient(90deg, $bright-blue, $hover-blue);
+        background: linear-gradient(90deg, $red-accent, $red-hover);
         border-radius: 2px;
       }
     }
@@ -435,17 +458,17 @@ body {
   }
 }
 
-// Compact Form Controls
+// Enhanced form controls with more contrast
 .form-group {
-  margin-bottom: 1.5rem; // Reduced from 3rem
+  margin-bottom: 1.5rem;
   position: relative;
   
   label {
     display: block;
     color: $light-blue;
-    font-size: 1.1rem; // Reduced from 1.3rem
+    font-size: 1.1rem;
     font-weight: 600;
-    margin-bottom: 0.6rem; // Reduced from 1rem
+    margin-bottom: 0.6rem;
     text-transform: uppercase;
     letter-spacing: 1px;
     position: relative;
@@ -457,17 +480,17 @@ body {
       left: 0;
       width: 30px;
       height: 2px;
-      background: $bright-blue;
+      background: $red-accent;
       border-radius: 1px;
     }
   }
   
   input[type="text"] {
     width: 100%;
-    padding: 1rem 1.5rem; // Reduced from 1.5rem 2rem
-    font-size: 1rem; // Reduced from 1.2rem
+    padding: 1rem 1.5rem;
+    font-size: 1rem;
     font-family: 'Montserrat', sans-serif;
-    background: rgba(42, 42, 42, 0.8);
+    background: rgba(64, 64, 64, 0.4); // More contrast
     border: 2px solid rgba(100, 181, 246, 0.3);
     border-radius: 1rem;
     color: $text-light;
@@ -475,6 +498,7 @@ body {
     box-sizing: border-box;
     position: relative;
     backdrop-filter: blur(10px);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
     
     &::placeholder {
       color: rgba(179, 229, 252, 0.5);
@@ -483,36 +507,38 @@ body {
     
     &:focus {
       outline: none;
-      border-color: $light-blue;
-      box-shadow: 0 0 0 3px rgba(100, 181, 246, 0.15);
-      background: rgba(42, 42, 42, 0.95);
+      border-color: $red-accent;
+      box-shadow: 
+        0 0 0 3px rgba(220, 38, 38, 0.15),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+      background: rgba(64, 64, 64, 0.6);
     }
     
     &:hover {
-      border-color: rgba(100, 181, 246, 0.5);
+      border-color: rgba(220, 38, 38, 0.5);
     }
   }
 }
 
-// Compact Submit Button
+// Enhanced submit button
 .submit-button {
   width: 100%;
-  padding: 1.2rem 1.5rem; // Reduced from 1.5rem 2rem
-  font-size: 1.1rem; // Reduced from 1.3rem
+  padding: 1.2rem 1.5rem;
+  font-size: 1.1rem;
   font-weight: 600;
   font-family: 'Montserrat', sans-serif;
   text-transform: uppercase;
   letter-spacing: 2px;
-  background: linear-gradient(135deg, $bright-blue, $light-blue);
+  background: linear-gradient(135deg, $red-accent, $red-hover);
   border: none;
   border-radius: 1rem;
-  color: $primary-dark;
+  color: white;
   cursor: pointer;
   transition: all 0.4s ease;
   position: relative;
   overflow: hidden;
   box-shadow: 
-    0 10px 30px rgba(66, 165, 245, 0.3),
+    0 10px 30px rgba(220, 38, 38, 0.3),
     inset 0 1px 0 rgba(255, 255, 255, 0.2);
   
   &::before {
@@ -529,10 +555,10 @@ body {
   &:hover {
     transform: translateY(-3px) scale(1.02);
     box-shadow: 
-      0 15px 40px rgba(66, 165, 245, 0.4),
-      0 5px 15px rgba(100, 181, 246, 0.3),
+      0 15px 40px rgba(220, 38, 38, 0.4),
+      0 5px 15px rgba(239, 68, 68, 0.3),
       inset 0 1px 0 rgba(255, 255, 255, 0.3);
-    background: linear-gradient(135deg, $hover-blue, $bright-blue);
+    background: linear-gradient(135deg, $red-hover, #f87171);
     
     &::before {
       left: 100%;
@@ -542,11 +568,10 @@ body {
   &:active {
     transform: translateY(-1px) scale(0.98);
     box-shadow: 
-      0 8px 25px rgba(66, 165, 245, 0.4),
+      0 8px 25px rgba(220, 38, 38, 0.4),
       inset 0 2px 4px rgba(0, 0, 0, 0.1);
   }
   
-  // Loading state
   &:disabled {
     opacity: 0.7;
     cursor: not-allowed;
@@ -561,15 +586,14 @@ body {
       height: 20px;
       margin: -10px 0 0 -10px;
       border: 2px solid transparent;
-      border-top: 2px solid $primary-dark;
+      border-top: 2px solid white;
       border-radius: 50%;
       animation: spin 1s linear infinite;
     }
   }
 }
 
-
-// Success/Error States
+// Enhanced success/error states
 .form-message {
   padding: 1rem 1.5rem;
   border-radius: 0.75rem;
@@ -579,19 +603,249 @@ body {
   animation: slideIn 0.3s ease;
   
   &.success {
-    background: rgba(76, 175, 80, 0.1);
-    border: 1px solid rgba(76, 175, 80, 0.3);
+    background: rgba(76, 175, 80, 0.15);
+    border: 1px solid rgba(76, 175, 80, 0.4);
     color: #81c784;
+    box-shadow: 0 4px 12px rgba(76, 175, 80, 0.1);
   }
   
   &.error {
-    background: rgba(255, 82, 82, 0.1);
-    border: 1px solid rgba(255, 82, 82, 0.3);
+    background: rgba(220, 38, 38, 0.15);
+    border: 1px solid rgba(220, 38, 38, 0.4);
     color: #ef5350;
+    box-shadow: 0 4px 12px rgba(220, 38, 38, 0.1);
   }
 }
 
-// Input Clean Effects (removed ripple and complex animations)
+// Enhanced suggestion component styling
+.suggestion-container {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  
+  .suggestion-header {
+    text-align: center;
+    margin-bottom: 2rem;
+    
+    h1 {
+      color: $light-blue;
+      font-size: 2.2rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      background: linear-gradient(135deg, $light-blue, $hover-blue);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    p {
+      color: $text-muted;
+      font-size: 1.1rem;
+      line-height: 1.6;
+      margin-bottom: 0.8rem;
+      
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+}
+
+// Enhanced movie card with more contrast
+.movie-card {
+  background: rgba(31, 31, 31, 0.95); // More contrast
+  backdrop-filter: blur(15px);
+  border-radius: 1rem;
+  padding: 2rem;
+  margin-top: 2rem;
+  box-shadow: 
+    0 15px 40px rgba(0, 0, 0, 0.8),
+    inset 0 1px 0 rgba(220, 38, 38, 0.1), // Red inner accent
+    0 0 0 1px rgba(64, 64, 64, 0.3);
+  border: 1px solid $border-color;
+  border-left: 3px solid $red-accent; // Red left accent
+  position: relative;
+  overflow: hidden;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(220, 38, 38, 0.02) 0%, transparent 50%);
+    animation: rotate 25s linear infinite;
+    pointer-events: none;
+  }
+  
+  .movie-content {
+    display: flex;
+    gap: 2rem;
+    align-items: flex-start;
+    position: relative;
+    z-index: 1;
+    
+    .movie-poster {
+      flex-shrink: 0;
+      
+      img {
+        width: 150px;
+        height: 225px;
+        object-fit: cover;
+        border-radius: 0.75rem;
+        border: 2px solid rgba(220, 38, 38, 0.4); // Red border
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
+        transition: all 0.3s ease;
+        
+        &:hover {
+          border-color: $red-accent;
+          transform: scale(1.02);
+          box-shadow: 0 12px 35px rgba(220, 38, 38, 0.3);
+        }
+      }
+      
+      .poster-placeholder {
+        width: 150px;
+        height: 225px;
+        background: linear-gradient(135deg, $nav-grey, $nav-dark);
+        border-radius: 0.75rem;
+        border: 2px solid rgba(220, 38, 38, 0.4);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: $text-muted;
+        font-size: 3rem;
+      }
+    }
+    
+    .movie-details {
+      flex: 1;
+      min-width: 0;
+      
+      h2 {
+        color: $light-blue;
+        font-size: 1.8rem;
+        font-weight: 600;
+        margin-bottom: 1rem;
+        line-height: 1.3;
+        word-wrap: break-word;
+      }
+      
+      .movie-meta {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin-bottom: 1.2rem;
+        flex-wrap: wrap;
+        
+        .rating {
+          display: flex;
+          align-items: center;
+          gap: 0.3rem;
+          color: $hover-blue;
+          font-weight: 600;
+          font-size: 1.1rem;
+        }
+        
+        .release-date {
+          color: $text-muted;
+          font-size: 1rem;
+        }
+        
+        .mood-indicator {
+          background: linear-gradient(135deg, $red-accent, $red-hover);
+          color: white;
+          padding: 0.3rem 0.8rem;
+          border-radius: 1rem;
+          font-size: 0.85rem;
+          font-weight: 600;
+          text-transform: uppercase;
+          letter-spacing: 0.5px;
+          box-shadow: 0 2px 8px rgba(220, 38, 38, 0.3);
+        }
+      }
+      
+      .movie-overview {
+        color: $text-muted;
+        font-size: 1rem;
+        line-height: 1.6;
+        margin-bottom: 1.5rem;
+        display: -webkit-box;
+        -webkit-line-clamp: 4;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      
+      .regenerate-button {
+        background: linear-gradient(135deg, $nav-grey, $nav-dark);
+        color: $red-accent;
+        border: 2px solid $red-accent;
+        padding: 0.7rem 1.5rem;
+        border-radius: 2rem;
+        font-size: 1rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        
+        &::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: -100%;
+          width: 100%;
+          height: 100%;
+          background: linear-gradient(90deg, transparent, rgba(220, 38, 38, 0.2), transparent);
+          transition: left 0.5s ease;
+        }
+        
+        &:hover {
+          background: linear-gradient(135deg, $red-accent, $red-hover);
+          color: white;
+          border-color: $red-hover;
+          transform: translateY(-2px);
+          box-shadow: 0 6px 20px rgba(220, 38, 38, 0.4);
+          
+          &::before {
+            left: 100%;
+          }
+        }
+        
+        &:active {
+          transform: translateY(0);
+        }
+      }
+    }
+  }
+}
+
+// Enhanced no movie state
+.no-movie-state {
+  text-align: center;
+  padding: 3rem 2rem;
+  background: rgba(64, 64, 64, 0.2);
+  border-radius: 1rem;
+  border: 2px dashed rgba(220, 38, 38, 0.4); // Red dashed border
+  margin-top: 2rem;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  
+  .icon {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+  }
+  
+  p {
+    color: $text-muted;
+    font-size: 1.1rem;
+    margin-bottom: 0;
+  }
+}
+
+// Input Clean Effects
 .input-group {
   position: relative;
   
@@ -601,24 +855,13 @@ body {
     left: 0;
     height: 2px;
     width: 0;
-    background: linear-gradient(90deg, $bright-blue, $hover-blue);
+    background: linear-gradient(90deg, $red-accent, $red-hover);
     transition: width 0.3s ease;
     border-radius: 1px;
   }
   
   input:focus ~ .input-highlight {
     width: 100%;
-  }
-}
-
-// Form Responsive Design
-@media (max-width: 1024px) {
-  .add-form-container {
-    max-width: 600px;
-    
-    .form-section {
-      padding: 3rem 2rem;
-    }
   }
 }
 
@@ -632,6 +875,14 @@ body {
       }
     }
   }
+  
+  .add-form-container {
+    max-width: 600px;
+    
+    .form-section {
+      padding: 3rem 2rem;
+    }
+  }
 }
 
 @media (max-width: 768px) {
@@ -641,6 +892,8 @@ body {
       height: auto;
       position: relative;
       padding: 1rem;
+      border-right: none;
+      border-bottom: 3px solid $red-accent; // Red border on bottom for mobile
       
       ul {
         display: flex;
@@ -723,327 +976,7 @@ body {
       font-size: 1.1rem;
     }
   }
-}
-
-@media (max-width: 480px) {
-  .app {
-    .main-content {
-      .content-wrapper {
-        h1 {
-          font-size: 1.75rem;
-        }
-        
-        h3 {
-          font-size: 1.5rem;
-        }
-        
-        p {
-          font-size: 1rem;
-        }
-      }
-    }
-  }
-
-  .add-form-container {
-    .form-header {
-      h1 {
-        font-size: 1.8rem;
-      }
-      
-      p {
-        font-size: 1rem;
-      }
-    }
-    
-    .form-section {
-      padding: 1.5rem 1rem;
-    }
-  }
-}
-
-// Additional Animations
-@keyframes slideIn {
-  from {
-    opacity: 0;
-    transform: translateY(-20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes rotate {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@keyframes glow {
-  0%, 100% {
-    box-shadow: 0 0 20px rgba(100, 181, 246, 0.3);
-  }
-  50% {
-    box-shadow: 0 0 40px rgba(100, 181, 246, 0.6);
-  }
-}
-
-// Animations
-@keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
-
-@keyframes pulse {
-  0%, 100% { 
-    transform: translate(-50%, -50%) scale(1);
-    opacity: 1;
-  }
-  50% { 
-    transform: translate(-50%, -50%) scale(1.5);
-    opacity: 0.7;
-  }
-}
-
-@keyframes fade {
-  0%, 100% { opacity: 0.6; }
-  50% { opacity: 1; }
-}
-
-// Glow effects
-.glow-effect {
-  filter: drop-shadow(0 0 15px rgba(100, 181, 246, 0.4));
-}
-
-// SUGGESTION COMPONENT STYLING - Dark Theme with Compact Layout
-.suggestion-container {
-  width: 100%;
-  max-width: 800px;
-  margin: 0 auto;
   
-  .suggestion-header {
-    text-align: center;
-    margin-bottom: 2rem;
-    
-    h1 {
-      color: $light-blue;
-      font-size: 2.2rem;
-      font-weight: 700;
-      margin-bottom: 1rem;
-      background: linear-gradient(135deg, $light-blue, $hover-blue);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-    
-    p {
-      color: $text-muted;
-      font-size: 1.1rem;
-      line-height: 1.6;
-      margin-bottom: 0.8rem;
-      
-      &:last-child {
-        margin-bottom: 0;
-      }
-    }
-  }
-}
-
-// Movie Card Styling - Compact horizontal layout
-.movie-card {
-  background: rgba(26, 26, 26, 0.9);
-  backdrop-filter: blur(15px);
-  border-radius: 1rem;
-  padding: 2rem;
-  margin-top: 2rem;
-  box-shadow: 
-    0 15px 40px rgba(0, 0, 0, 0.6),
-    inset 0 1px 0 rgba(100, 181, 246, 0.1);
-  border: 1px solid rgba(100, 181, 246, 0.2);
-  position: relative;
-  overflow: hidden;
-  
-  &::before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(circle, rgba(100, 181, 246, 0.02) 0%, transparent 50%);
-    animation: rotate 25s linear infinite;
-    pointer-events: none;
-  }
-  
-  .movie-content {
-    display: flex;
-    gap: 2rem;
-    align-items: flex-start;
-    position: relative;
-    z-index: 1;
-    
-    .movie-poster {
-      flex-shrink: 0;
-      
-      img {
-        width: 150px;
-        height: 225px;
-        object-fit: cover;
-        border-radius: 0.75rem;
-        border: 2px solid rgba(100, 181, 246, 0.3);
-        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
-        transition: all 0.3s ease;
-        
-        &:hover {
-          border-color: $light-blue;
-          transform: scale(1.02);
-          box-shadow: 0 12px 35px rgba(100, 181, 246, 0.3);
-        }
-      }
-      
-      // Placeholder for missing posters
-      .poster-placeholder {
-        width: 150px;
-        height: 225px;
-        background: linear-gradient(135deg, $secondary-dark, $accent-dark);
-        border-radius: 0.75rem;
-        border: 2px solid rgba(100, 181, 246, 0.3);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: $text-muted;
-        font-size: 3rem;
-      }
-    }
-    
-    .movie-details {
-      flex: 1;
-      min-width: 0; // Prevents flex item from overflowing
-      
-      h2 {
-        color: $light-blue;
-        font-size: 1.8rem;
-        font-weight: 600;
-        margin-bottom: 1rem;
-        line-height: 1.3;
-        word-wrap: break-word;
-      }
-      
-      .movie-meta {
-        display: flex;
-        align-items: center;
-        gap: 1rem;
-        margin-bottom: 1.2rem;
-        flex-wrap: wrap;
-        
-        .rating {
-          display: flex;
-          align-items: center;
-          gap: 0.3rem;
-          color: $hover-blue;
-          font-weight: 600;
-          font-size: 1.1rem;
-        }
-        
-        .release-date {
-          color: $text-muted;
-          font-size: 1rem;
-        }
-        
-        .mood-indicator {
-          background: linear-gradient(135deg, $light-blue, $bright-blue);
-          color: $primary-dark;
-          padding: 0.3rem 0.8rem;
-          border-radius: 1rem;
-          font-size: 0.85rem;
-          font-weight: 600;
-          text-transform: uppercase;
-          letter-spacing: 0.5px;
-        }
-      }
-      
-      .movie-overview {
-        color: $text-muted;
-        font-size: 1rem;
-        line-height: 1.6;
-        margin-bottom: 1.5rem;
-        display: -webkit-box;
-        -webkit-line-clamp: 4; // Limit to 4 lines
-        -webkit-box-orient: vertical;
-        overflow: hidden;
-        text-overflow: ellipsis;
-      }
-      
-      .regenerate-button {
-        background: linear-gradient(135deg, $accent-dark, $secondary-dark);
-        color: $light-blue;
-        border: 2px solid $light-blue;
-        padding: 0.7rem 1.5rem;
-        border-radius: 2rem;
-        font-size: 1rem;
-        font-weight: 600;
-        cursor: pointer;
-        transition: all 0.3s ease;
-        position: relative;
-        overflow: hidden;
-        
-        &::before {
-          content: '';
-          position: absolute;
-          top: 0;
-          left: -100%;
-          width: 100%;
-          height: 100%;
-          background: linear-gradient(90deg, transparent, rgba(100, 181, 246, 0.2), transparent);
-          transition: left 0.5s ease;
-        }
-        
-        &:hover {
-          background: linear-gradient(135deg, $light-blue, $bright-blue);
-          color: $primary-dark;
-          border-color: $hover-blue;
-          transform: translateY(-2px);
-          box-shadow: 0 6px 20px rgba(100, 181, 246, 0.4);
-          
-          &::before {
-            left: 100%;
-          }
-        }
-        
-        &:active {
-          transform: translateY(0);
-        }
-      }
-    }
-  }
-}
-
-// No movie state
-.no-movie-state {
-  text-align: center;
-  padding: 3rem 2rem;
-  background: rgba(42, 42, 42, 0.3);
-  border-radius: 1rem;
-  border: 2px dashed rgba(100, 181, 246, 0.3);
-  margin-top: 2rem;
-  
-  .icon {
-    font-size: 4rem;
-    margin-bottom: 1rem;
-  }
-  
-  p {
-    color: $text-muted;
-    font-size: 1.1rem;
-    margin-bottom: 0;
-  }
-}
-
-// Responsive design for suggestion component
-@media (max-width: 768px) {
   .suggestion-container {
     .suggestion-header {
       h1 {
@@ -1083,7 +1016,7 @@ body {
         }
         
         .movie-overview {
-          -webkit-line-clamp: 6; // More lines on mobile
+          -webkit-line-clamp: 6;
         }
       }
     }
@@ -1091,6 +1024,40 @@ body {
 }
 
 @media (max-width: 480px) {
+  .app {
+    .main-content {
+      .content-wrapper {
+        h1 {
+          font-size: 1.75rem;
+        }
+        
+        h3 {
+          font-size: 1.5rem;
+        }
+        
+        p {
+          font-size: 1rem;
+        }
+      }
+    }
+  }
+
+  .add-form-container {
+    .form-header {
+      h1 {
+        font-size: 1.8rem;
+      }
+      
+      p {
+        font-size: 1rem;
+      }
+    }
+    
+    .form-section {
+      padding: 1.5rem 1rem;
+    }
+  }
+  
   .movie-card {
     padding: 1rem;
     margin-top: 1.5rem;
@@ -1125,6 +1092,63 @@ body {
       }
     }
   }
+}
+
+// Additional Animations
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes glow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(220, 38, 38, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(220, 38, 38, 0.6);
+  }
+}
+
+// Animations
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes pulse {
+  0%, 100% { 
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+  50% { 
+    transform: translate(-50%, -50%) scale(1.5);
+    opacity: 0.7;
+  }
+}
+
+@keyframes fade {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
+}
+
+// Glow effects
+.glow-effect {
+  filter: drop-shadow(0 0 15px rgba(220, 38, 38, 0.4));
 }
 
 // Smooth scrolling
