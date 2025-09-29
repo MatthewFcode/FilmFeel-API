@@ -17,7 +17,9 @@
     "build:client": "vite build",
     "build:server": "esbuild --packages=external --platform=node --format=esm --outfile=dist/server.js --bundle server/index.ts",
     "lint": "eslint --ext .js,.jsx,.ts,.tsx .",
-    "knex": "knex --knexfile ./server/db/knexfile.js"
+    "knex": "knex --knexfile ./server/db/knexfile.js",
+    "render:build": "npm install && npm run build && npm prune --omit=dev && NODE_ENV='production' npm run knex migrate:latest",
+"render:start": "node dist/server.js"
   },
   "eslintConfig": {
     "extends": "@devacademy/eslint-config/react",
@@ -30,6 +32,7 @@
     "dotenv": "^17.2.2",
     "express": "^4.17.2",
     "knex": "^2.5.1",
+    "pg": "^8.16.3",
     "react-router-hash-link": "^2.4.3",
     "sqlite3": "^5.1.6",
     "superagent": "^10.2.1"
