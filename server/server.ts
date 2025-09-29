@@ -1,10 +1,15 @@
 import express from 'express'
 import * as Path from 'node:path'
-import dotenv from 'dotenv'
 import movieRoutes from './routes/movies.ts'
 import cors from 'cors'
 
-dotenv.config()
+if (process.env.NODE_ENV !== 'production') {
+  import('dotenv')
+    .then((dotenv) => dotenv.config())
+    .catch((err) => {
+      console.error('Failed to load dotenv: ', err)
+    })
+}
 
 console.log('TMDB_API_KEY:', process.env.TMDB_API_KEY)
 
