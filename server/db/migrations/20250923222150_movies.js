@@ -9,7 +9,7 @@ export async function up(knex) {
     table.float('rating')
     table.text('overview')
     table.string('release_date')
-    table.string('poster')
+    table.text('poster')
     table.string('language')
     table.string('mood')
   })
