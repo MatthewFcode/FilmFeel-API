@@ -7,7 +7,7 @@ export async function up(knex) {
     table.increments('id').primary()
     table.string('title').notNullable()
     table.float('rating')
-    table.string('overview')
+    table.text('overview')
     table.string('release_date')
     table.string('poster')
     table.string('language')
