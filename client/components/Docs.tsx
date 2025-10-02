@@ -51,8 +51,15 @@ function Docs() {
       </p>
 
       <h3>How to use❓ | Requests and Endpoints</h3>
-      <p>Requesting all the data: </p>
-      <p>Requesting data by tag: </p>
+      <p>
+        Requesting all the data:{' '}
+        <code>https://filmfeel-api.onrender.com/api/v1/movies</code>
+      </p>
+      <p>
+        Requesting data by tag:{' '}
+        <code>https://filmfeel-api.onrender.com/api/v1/movies/Sad</code>
+        (Sad is an example of a mood)
+      </p>
       <p>
         The API can take a get request with no API tag and then return all the
         data in the API. Adding a tag to the query will give you back all the
