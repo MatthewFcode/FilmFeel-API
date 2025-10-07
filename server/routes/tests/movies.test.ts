@@ -81,7 +81,7 @@ describe('Gets all Movies by the mood associated with them', () => {
       },
     ])
 
-    const result = await request(server).get('/api/v1/movies').send('excited')
+    const result = await request(server).get(`/api/v1/movies/${'excited'}`)
     expect(result.status).toBe(StatusCodes.OK)
     expect(result.body[0]).toEqual({
       id: expect.any(Number),
@@ -125,6 +125,8 @@ describe('Adding a movie to the database', () => {
       .post('/api/v1/movies')
       .send({ title: 'Up', mood: 'Excited' })
 
+    expect(response.status).toBe(StatusCodes.CREATED)
+
     expect(response.body[0]).toEqual({
       id: expect.any(Number),
       title: 'Up',
@@ -136,5 +138,25 @@ describe('Adding a movie to the database', () => {
       language: 'en',
       mood: 'Excited',
     })
+  })
+})
+
+describe('Getting all mood tags', () => {
+  it('returns all the mood tags from the database', async () => {
+    await db('movies').insert([
+      {
+        title: 'Avatar',
+        rating: 8.6,
+        overview:
+          'Jake, a paraplegic marine, replaces his brother on the Navi-inhabited Pandora for a corporate mission.',
+        release_date: '17th December 2009',
+        poster: '',
+        language: 'en',
+        mood: 'excited',
+      },
+    ])
+    const result = await request(server).get('/api/v1/movies/moods')
+    expect(result.status).toBe(StatusCodes.OK)
+    expect(result.body[0]).toEqual('excited')
   })
 })
