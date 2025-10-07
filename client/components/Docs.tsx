@@ -27,7 +27,7 @@ function Docs() {
   "id": 1,
   "title": "Inception",
   "rating": 8.37,
-  "overview": "Cobb, a skilled thief who commits corporate espionage by infiltrating the subconscious of his targets is offered a chance to regain his old life as payment for a task considered to be impossible: the implantation of another person's idea into a target's subconscious.",
+  "overview": "Cobb, a skilled thief who commits corporate espionage.",
   "release_date": "2010-07-15",
   "poster": "/ljsZTbVsrQSqZgWeep2B1QiDKuh.jpg",
   "language": "en",
@@ -51,8 +51,19 @@ function Docs() {
       </p>
 
       <h3>How to use❓ | Requests and Endpoints</h3>
-      <p>Requesting all the data: </p>
-      <p>Requesting data by tag: </p>
+      <p>
+        Requesting all the data:{' '}
+        <pre>
+          <code>GET https://filmfeel-api.onrender.com/api/v1/movies</code>
+        </pre>
+      </p>
+      <p>
+        Requesting data by tag:{' '}
+        <pre>
+          <code>GET https://filmfeel-api.onrender.com/api/v1/movies/Sad</code>
+        </pre>
+        (Sad is an example of a mood)
+      </p>
       <p>
         The API can take a get request with no API tag and then return all the
         data in the API. Adding a tag to the query will give you back all the
