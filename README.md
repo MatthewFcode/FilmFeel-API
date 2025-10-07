@@ -2,6 +2,7 @@
 
 ## Live at: https://filmfeel-api.onrender.com
 
+## Test Automation Status: ![Node.js CI](https://github.com/MatthewFcode/FilmFeel-API/actions/workflows/nodejs-sqlite-ci.yml/badge.svg)
 
 ### What's included
 
