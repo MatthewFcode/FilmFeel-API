@@ -1,10 +1,15 @@
 import express from 'express'
 import * as Path from 'node:path'
-import dotenv from 'dotenv'
 import movieRoutes from './routes/movies.ts'
 import cors from 'cors'
 
-dotenv.config()
+if (process.env.NODE_ENV !== 'production') {
+  import('dotenv')
+    .then((dotenv) => dotenv.config())
+    .catch((err) => {
+      console.error('Failed to load dotenv: ', err)
+    })
+}
 
 console.log('TMDB_API_KEY:', process.env.TMDB_API_KEY)
 
@@ -19,7 +24,7 @@ server.use('/api/v1/movies', movieRoutes)
 if (process.env.NODE_ENV === 'production') {
   server.use(express.static(Path.resolve('public')))
   server.use('/assets', express.static(Path.resolve('./dist/assets')))
-  server.get('yes*', (req, res) => {
+  server.get('*', (req, res) => {
     res.sendFile(Path.resolve('./dist/index.html'))
   })
 }
