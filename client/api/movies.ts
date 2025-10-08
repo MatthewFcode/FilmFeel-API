@@ -1,6 +1,11 @@
 import request from 'superagent'
 import { Movie } from '../../models/movies.ts'
-const rootURL = new URL(`/api/v1`, document.baseURI)
+
+// document represents the HTML page || in Node.js document doesn't exist at all -> our vitest environment is in Node so we essentially use the back end server for our test when we want to run the test instead of the faulty document.basURI which implies we have a document
+const rootURL =
+  typeof document !== 'undefined'
+    ? new URL(`/api/v1`, document.baseURI)
+    : 'http://localhost:3000/api/v1'
 
 // api endpoint for resquesting all movies by the mood they have associated with them and is going to be used for the movie recommendation component
 export async function getMoviesByMood(
