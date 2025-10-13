@@ -54,13 +54,13 @@ function Docs() {
       <p>
         Requesting all the data:{' '}
         <pre>
-          <code>GET https://filmfeel-api.onrender.com/api/v1/movies</code>
+          <code>GET https://filmfeels.borb.nz/api/v1/movies</code>
         </pre>
       </p>
       <p>
         Requesting data by tag:{' '}
         <pre>
-          <code>GET https://filmfeel-api.onrender.com/api/v1/movies/Sad</code>
+          <code>GET https://filmfeels.borb.nz/api/v1/movies/Curious</code>
         </pre>
         (Sad is an example of a mood)
       </p>
