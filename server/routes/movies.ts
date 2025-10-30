@@ -2,6 +2,8 @@ import { Router } from 'express'
 import request from 'superagent'
 import * as db from '../db/movies.ts'
 import { Movie } from '../../models/movies.ts'
+import { wss } from '../server.ts' // the is the websocket server setup that we made in server.ts and so is the same instance (same open connection)
+import ws from 'ws'
 
 const router = Router()
 
@@ -80,6 +82,20 @@ router.post('/', async (req, res) => {
       mood: mood,
     }
     const insertedMovie = await db.addMovie(newMovie)
+    wss.clients.forEach((client) => {
+      // creates loop for all connected clients
+      if (client.readyState === ws.OPEN) {
+        // checks if the connection is open (client is connected)
+        client.send(
+          JSON.stringify({
+            //pushes the message
+            type: 'database_change',
+            message: 'New movie post',
+          }),
+        )
+      }
+    })
+
     res.status(201).json(insertedMovie)
   } catch (err) {
     console.log(err)

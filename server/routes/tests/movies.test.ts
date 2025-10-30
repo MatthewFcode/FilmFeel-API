@@ -9,7 +9,7 @@ import {
 } from 'vitest'
 import request from 'supertest'
 import { StatusCodes } from 'http-status-codes'
-import server from '../../server.ts'
+import app from '../../server.ts'
 import connection from '../../db/connection.ts'
 import superagent from 'superagent'
 
@@ -49,7 +49,7 @@ describe('getting all the movies', () => {
       },
     ])
 
-    const result = await request(server).get('/api/v1/movies')
+    const result = await request(app).get('/api/v1/movies')
 
     expect(result.status).toBe(StatusCodes.OK)
     expect(result.body[0]).toEqual({
@@ -81,7 +81,7 @@ describe('Gets all Movies by the mood associated with them', () => {
       },
     ])
 
-    const result = await request(server).get(`/api/v1/movies/${'excited'}`)
+    const result = await request(app).get(`/api/v1/movies/${'excited'}`)
     expect(result.status).toBe(StatusCodes.OK)
     expect(result.body[0]).toEqual({
       id: expect.any(Number),
@@ -121,7 +121,7 @@ describe('Adding a movie to the database', () => {
       query: vi.fn().mockResolvedValue(fakeAPIResponse),
     })
 
-    const response = await request(server)
+    const response = await request(app)
       .post('/api/v1/movies')
       .send({ title: 'Up', mood: 'Excited' })
 
@@ -155,7 +155,7 @@ describe('Getting all mood tags', () => {
         mood: 'excited',
       },
     ])
-    const result = await request(server).get('/api/v1/movies/moods')
+    const result = await request(app).get('/api/v1/movies/moods')
     expect(result.status).toBe(StatusCodes.OK)
     expect(result.body[0]).toEqual('excited')
   })

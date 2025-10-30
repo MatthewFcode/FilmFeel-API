@@ -1,8 +1,27 @@
 import { useAllMoods } from '../hooks/useMovies.ts'
 import LoadingSpinner from './Loading.tsx'
+// import { useQueryClient } from '@tanstack/react-query'
+// import { useEffect } from 'react'
 
 function Docs() {
   const { data: moods, isError, isPending } = useAllMoods()
+
+  // const queryClient = useQueryClient()
+
+  // useEffect(() => {
+  //   const ws = new WebSocket('wss://filmfeels.borb.nz/')
+
+  //   ws.onopen = () => {
+  //     console.log('Websocket connected')
+  //   }
+
+  //   ws.onmessage = (event) => {
+  //     const data = JSON.parse(event.data)
+  //     if (data.type === 'database_change') {
+  //       queryClient.invalidateQueries({ queryKey: ['all-moods'] })
+  //     }
+  //   }
+  // })
 
   if (isError) {
     return <div>...Error Loading Mood Tags</div>

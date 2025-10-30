@@ -2,10 +2,27 @@ import { useState, useEffect } from 'react'
 import { useMoviesByMood, useAllMoods } from '../hooks/useMovies.ts'
 import LoadingSpinner from './Loading.tsx'
 import { Movie } from '../../models/movies.ts'
+// import { useQueryClient } from '@tanstack/react-query'
 
 function Suggestion() {
   const [selectedMood, setSelectedMood] = useState('')
   const [suggestedMovie, setSuggestedMovie] = useState<Movie | null>(null)
+
+  // const queryClient = useQueryClient()
+  // useEffect(() => {
+  //   const ws = new WebSocket('wss://filmfeels.borb.nz/') // opens the connections from the browser
+
+  //   ws.onopen = () => {
+  //     console.log('Websocket connected')
+  //   }
+
+  //   ws.onmessage = (event) => {
+  //     const data = JSON.parse(event.data)
+  //     if (data.type === 'database_change') {
+  //       queryClient.invalidateQueries({ queryKey: ['all-moods'] })
+  //     }
+  //   }
+  // }, [queryClient])
 
   const {
     data: moods,
