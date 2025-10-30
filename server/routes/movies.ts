@@ -88,7 +88,7 @@ router.post('/', async (req, res) => {
         // checks if the connection is open (client is connected)
         client.send(
           JSON.stringify({
-            //pushes the message
+            //pushes the message which the react app instantly recieves that message and the use effect refetches that data for the thing that has been changed
             type: 'database_change',
             message: 'New movie post',
           }),
