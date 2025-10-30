@@ -19,7 +19,7 @@ function App() {
         queryClient.invalidateQueries({ queryKey: ['all-moods'] })
       }
     }
-  })
+  }, [queryClient])
 
   return (
     <div className="app">
