@@ -28,7 +28,6 @@ function App() {
       <main className="main-content">
         <div className="content-wrapper">
           <Outlet />
-          ee
         </div>
       </main>
     </div>
