@@ -16,9 +16,10 @@ function App() {
     ws.onmessage = (event) => {
       const data = JSON.parse(event.data)
       if (data.type === 'database_change') {
-        queryClient.invalidateQueries({ queryKey: ['all-moods'] })
+        queryClient.invalidateQueries()
       }
     }
+    return () => ws.close()
   }, [queryClient])
 
   return (
@@ -27,6 +28,7 @@ function App() {
       <main className="main-content">
         <div className="content-wrapper">
           <Outlet />
+          ee
         </div>
       </main>
     </div>
