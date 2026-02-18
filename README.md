@@ -4,15 +4,9 @@
 
 ## Test Automation Status: ![Node.js CI](https://github.com/MatthewFcode/FilmFeel-API/actions/workflows/nodejs-sqlite-ci.yml/badge.svg)
 
-This repo includes:
+## This project serves as a hosted API that allow for GET and POST requests to be made with 0 CORS restrictions and also includes some other cool functionality as listed below.
 
-* a mood-driven movie discovery API  
-* user-powered film entries enriched automatically with metadata (genres, year, runtime, ratings, etc.)  
-* mood-based grouping of films (e.g. nostalgic, excited, relaxed, anxious, inspired)  
-* a recommendation filter that suggests films based on your current mood  
-* clean, RESTful endpoints for easy integration into apps or websites  
-
-### ✨ Features
+### Features of this project
 
 * **User-powered film entries**  
   Every film in the database starts with real user input—personal and authentic.  
